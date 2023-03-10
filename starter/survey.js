@@ -80,7 +80,7 @@ const questions = [
         return "Please enter your desired salary.";
       } else if (value <= 0) {
         return "Please enter valid number.";
-      } else if (value > 1000000) {
+      } else if (value > 10000000) {
         return "Sorry, that's out of our budget!";
       } else if (0 <= value <= 10000000) {
         return true;
@@ -94,7 +94,7 @@ inquirer
   .prompt(questions)
   .then((answers) => {
     console.log(JSON.stringify(answers, null, 2));
-    console.log("Thank you for filling our survey!");
+    console.log("Thank you for completing our survey!");
   })
   .catch((error) => {
     if (error.isTtyError) {
