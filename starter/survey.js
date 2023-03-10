@@ -75,6 +75,9 @@ const questions = [
     name: "desiredSalary",
     type: "number",
     message: "What is your desired salary?",
+    when: function (answers) {
+      return answers.devExp === "Yes";
+    },
     validate: function (value) {
       if (!value) {
         return "Please enter your desired salary.";
