@@ -73,10 +73,12 @@ const questions = [
   },
   {
     name: "desiredSalary",
-    type: "input",
+    type: "number",
     message: "What is your desired salary?",
     validate: function (value) {
-      if (value < 0) {
+      if (!value) {
+        return "Please enter your desired salary.";
+      } else if (value <= 0) {
         return "Please enter valid number.";
       } else if (value > 1000000) {
         return "Sorry, that's out of our budget!";
@@ -92,6 +94,7 @@ inquirer
   .prompt(questions)
   .then((answers) => {
     console.log(JSON.stringify(answers, null, 2));
+    console.log("Thank you for filling our survey!");
   })
   .catch((error) => {
     if (error.isTtyError) {
